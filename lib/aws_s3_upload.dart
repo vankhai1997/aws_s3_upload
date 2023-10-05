@@ -110,7 +110,7 @@ class AwsS3 {
     if (metadata != null) {
       req.fields.addAll(metadataParams);
     }
-
+    req.headers.addAll({"Content-Type": "application/json"});
     try {
       final res = await req.send();
 
