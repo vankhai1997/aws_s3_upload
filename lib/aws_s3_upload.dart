@@ -6,6 +6,7 @@ import 'package:amazon_cognito_identity_dart_2/sig_v4.dart';
 import 'package:aws_s3_upload/enum/acl.dart';
 import 'package:aws_s3_upload/src/utils.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:recase/recase.dart';
 
@@ -25,7 +26,7 @@ class AwsS3 {
     required String bucket,
 
     /// The file to upload
-    required File file,
+    required XFile file,
 
     /// The key to save this file as. Will override destDir and filename if set.
     String? key,
