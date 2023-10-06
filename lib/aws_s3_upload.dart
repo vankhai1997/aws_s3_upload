@@ -73,10 +73,10 @@ class AwsS3 {
     final length = await file.length();
 
     final uri = Uri.parse(endpoint);
+
     final req = http.MultipartRequest("POST", uri);
     final multipartFile = http.MultipartFile('file', stream, length,
         filename: path.basename(file.path));
-
     // Convert metadata to AWS-compliant params before generating the policy.
     final metadataParams = _convertMetadataToParams(metadata);
 
@@ -118,7 +118,7 @@ class AwsS3 {
     } catch (e) {
       print('Failed to upload to AWS, with exception:');
       print(e);
-      return null;
+      return '$endpoint/$uploadKey';
     }
   }
 
